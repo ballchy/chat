@@ -9,9 +9,9 @@ services:
       - "${CHAT_APP_PORT}:80"
 
   message-service:
-    build: ./apis/message-service
+    build: ./api/message-service
     container_name: message-service
     volumes:
-      - './apis/message-service:/app'
+      - './api/message-service:/app'
     ports:
       - "${MESSAGE_SERVICE_PORT}:5000"
