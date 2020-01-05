@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - './assets/build:/usr/share/nginx/html'
+    ports:
+      - "${CHAT_APP_PORT}:80"
+
+  message-service:
+    build: ./apis/message-service
+    container_name: message-service
+    volumes:
+      - './apis/message-service:/app'
+    ports:
+      - "${MESSAGE_SERVICE_PORT}:5000"
